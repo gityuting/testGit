@@ -1,0 +1,13 @@
+package com.example.demo.demo.impl;
+
+import com.example.demo.demo.UserService;
+import org.springframework.stereotype.Service;
+
+@Service("userService")
+public class UserServiceImpl implements UserService {
+
+    @Override
+    public  void getUser() {
+        System.out.println("UserServiceImpl");
+    }
+}
