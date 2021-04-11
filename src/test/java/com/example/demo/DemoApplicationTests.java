@@ -6,9 +6,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 class DemoApplicationTests {
@@ -33,7 +36,8 @@ class DemoApplicationTests {
 	}
 	@Test
 	void structure(){
-	/*	System.out.printf("%.1f",2.0-1.1);
+		System.out.printf("%.1f",2.0-1.1);
+	/*
 		System.out.printf("%.2f",2.0-1.1);
 		System.out.println(1.0-0.1);*/
 	    //数字必须加：" "
@@ -51,6 +55,27 @@ class DemoApplicationTests {
 		double d = 1;
 		d=d+1.1f;
 		s+=1;
+
+		List a = new ArrayList();
+         a.add(1);
+         a.add("1");
+         a.add(null);
+         List<?> b = a;
+         Object o = b.get(1);
+         String c = (String) b.get(1);
+
+         List<? extends Integer> l1 = new ArrayList<>();
+
+		Integer n = l1.get(1);
+		Integer n1 = l1.get(2);
+
+		List<? super Number> l2 = new ArrayList<>();
+		l2.add(Integer.MAX_VALUE);
+		Number number = null;
+		l2.add(number);
+
+		//断言
+		assert true;
 	}
 
 	@Test
@@ -64,5 +89,9 @@ class DemoApplicationTests {
 			return 2;
 		}
 	}
+	public <T> int m(T t) {
 
-}
+		ArrayList<T> ts = new ArrayList<T>();
+
+		return 1;
+	}}

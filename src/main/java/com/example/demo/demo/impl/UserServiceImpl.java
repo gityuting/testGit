@@ -7,7 +7,14 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Override
-    public  void getUser() {
+    public  Integer getUser() {
         System.out.println("UserServiceImpl");
+        return 1;
+    }
+
+    @Override
+    public Number test(Integer i) {
+
+        return 1;
     }
 }
